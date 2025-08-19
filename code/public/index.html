@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESCO - Entreprise Sahélienne de Construction</title>
+    <title>ESCO - Entreprise Sahélienne de Construction | Bâtisseurs d'avenir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #1a6aa2;
-            --secondary: #e67e22;
+            --primary: #7e4300;
+            --secondary: #c35100;
             --accent: #27ae60;
-            --dark: #2c3e50;
+            --dark: #503b2c;
             --light: #f8f9fa;
             --sand: #f4e8d2;
             --shadow: rgba(0, 0, 0, 0.1);
@@ -24,7 +26,8 @@
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inria Sans', sans-serif;
+            font-style: normal;
             line-height: 1.6;
             color: #333;
             background-color: var(--light);
@@ -47,9 +50,8 @@
         
         /* Header */
         header {
-            background-color: white;
-            box-shadow: 0 2px 15px var(--shadow);
-            position: fixed;
+            /* floue de fond */
+            position: absolute;
             width: 100%;
             top: 0;
             z-index: 1000;
@@ -67,14 +69,9 @@
             align-items: center;
         }
         
-        .logo h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0;
-            color: var(--primary);
-        }
-        
-        .logo span {
-            color: var(--secondary);
+        .logo-img {
+            height: 50px;
+            width: auto;
         }
         
         nav ul {
@@ -88,7 +85,7 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 500;
             font-size: 1.05rem;
             transition: color 0.3s;
@@ -323,11 +320,135 @@
             margin-bottom: 20px;
         }
         
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--shadow);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 100px 0;
             background: linear-gradient(to right, var(--primary), var(--dark));
             color: white;
+        }
+
+        .contact *{
+            color: white;
+        
         }
         
         .contact .section-title h2 {
@@ -360,11 +481,49 @@
             color: var(--secondary);
         }
         
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
             color: rgba(255, 255, 255, 0.7);
             padding: 40px 0 20px;
+        }
+
+        footer h3{
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
         
         .footer-content {
@@ -454,11 +613,14 @@
             .mobile-toggle {
                 display: block;
             }
-            
+            .fa-bars{
+                color: var(--light);
+            }
             nav {
                 position: fixed;
                 top: 70px;
                 left: -100%;
+                color: black;
                 background-color: white;
                 width: 100%;
                 height: calc(100vh - 70px);
@@ -477,6 +639,10 @@
             
             nav ul li {
                 margin: 15px 0;
+            }
+
+            nav ul li a {
+                color: black;
             }
             
             .hero h1 {
@@ -504,7 +670,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1>ES<span>CO</span></h1>
+                <img src="./assete/image/ESco.png" alt="ESCO Logo" class="logo-img">
             </div>
             <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -514,6 +680,7 @@
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#apropos">À propos</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#projets">Projets</a></li>
                     <li><a href="#atouts">Atouts</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -525,10 +692,10 @@
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1>Entreprise Sahélienne de Construction</h1>
-            <p>Bâtissons ensemble l'avenir avec expertise et innovation</p>
+            <p>Excellence en bâtiment, travaux publics, hydraulique et formation professionnelle</p>
             <div class="btn-container">
-                <a href="#services" class="btn">Nos Services</a>
-                <a href="#contact" class="btn btn-contact">Contactez-nous</a>
+                <a href="#services" class="btn">Découvrir nos services</a>
+                <a href="#contact" class="btn btn-contact">Demander un devis</a>
             </div>
         </div>
     </section>
@@ -537,17 +704,41 @@
     <section id="apropos" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>À propos de nous</h2>
+                <h2>Notre passion: façonner le paysage sénégalais</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Notre histoire et vision</h3>
-                    <p>L'Entreprise Sahélienne de Construction (ESCO) est une entreprise sénégalaise évoluant dans les domaines du Génie Civil et des Bâtiments. Fondée sur des valeurs d'excellence et d'intégrité, ESCO vise à s'imposer comme une entreprise incontournable dans le secteur du bâtiment au Sénégal et dans la sous-région.</p>
-                    <p>Notre engagement envers la qualité du travail passe par des professionnels compétents, une rigueur exemplaire et une aptitude à aborder des projets complexes. Nous fournissons des résultats satisfaisants grâce à la maîtrise des nouvelles technologies dans le secteur et l'utilisation de matériaux sophistiqués.</p>
-                    <p>Chez ESCO, chaque projet est une opportunité de démontrer notre expertise et notre engagement envers l'excellence, faisant de nous un partenaire fiable pour nos clients.</p>
+                    <h3>Votre partenaire de confiance pour des constructions d'exception</h3>
+                    <p>Forte de 10 années d'expertise, l'Entreprise Sahélienne de Construction (ESCO) s'est imposée comme un acteur majeur dans le domaine du Génie Civil et des Bâtiments au Sénégal. Notre mission va au-delà de la simple construction : nous créons des espaces de vie et de travail qui inspirent et durent.</p>
+                    <p>Notre philosophie repose sur trois piliers fondamentaux : l'excellence technique, l'innovation permanente et la satisfaction absolue de nos clients. Chaque projet que nous entreprenons bénéficie de l'expertise de nos ingénieurs et techniciens certifiés, formés aux dernières avancées technologiques du secteur.</p>
+                    <p>Ce qui distingue ESCO, c'est notre capacité unique à allier le savoir-faire local aux normes internationales les plus exigeantes. Nous comprenons parfaitement les défis techniques et environnementaux spécifiques à la région sahélienne, et nous adaptons nos solutions en conséquence pour garantir des résultats optimaux.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80" alt="Chantier de construction ESCO">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80" alt="Équipe de construction ESCO travaillant sur un chantier">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-text">Projets réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-text">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-text">Ans d'expérience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="75">0</div>
+                    <div class="stat-text">Professionnels</div>
                 </div>
             </div>
         </div>
@@ -557,7 +748,8 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Services</h2>
+                <h2>Des solutions complètes pour tous vos projets</h2>
+                <p>De la conception à la livraison, nous maîtrisons chaque étape de votre projet de construction</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -565,28 +757,101 @@
                         <i class="fas fa-building"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Construction de bâtiments</h3>
-                        <p>Réalisation de bâtiments résidentiels, commerciaux et industriels de toutes envergures, de la conception à la livraison clé en main.</p>
+                        <h3>Bâtiment</h3>
+                        <p>Construction et rénovation de bâtiments de toute nature :</p>
+                        <ul>
+                            <li>Immeubles résidentiels</li>
+                            <li>Bâtiments commerciaux</li>
+                            <li>Édifices industriels</li>
+                            <li>Institutions publiques</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
+                        <i class="fas fa-road"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Génie Civil</h3>
-                        <p>Expertise en infrastructures civiles : routes, ponts, ouvrages d'art et travaux de fondations complexes.</p>
+                        <h3>Travaux publics</h3>
+                        <p>Réalisation d'infrastructures et d'ouvrages publics :</p>
+                        <ul>
+                            <li>Routes et voiries</li>
+                            <li>Ponts et ouvrages d'art</li>
+                            <li>Terrassement</li>
+                            <li>Aménagements urbains</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-water"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Rénovation et réhabilitation</h3>
-                        <p>Transformation et modernisation de structures existantes pour améliorer leur fonctionnalité, sécurité et esthétique.</p>
+                        <h3>Hydraulique et assainissement</h3>
+                        <p>Solutions complètes en gestion des eaux :</p>
+                        <ul>
+                            <li>Réseaux d'eau potable</li>
+                            <li>Systèmes d'assainissement</li>
+                            <li>Stations d'épuration</li>
+                            <li>Ouvrages hydrauliques</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Formation en génie civil</h3>
+                        <p>Formation professionnelle sur les logiciels spécialisés :</p>
+                        <ul>
+                            <li>AutoCAD</li>
+                            <li>Robot Structural Analysis</li>
+                            <li>Revit</li>
+                            <li>MS Project</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos réalisations emblématiques</h2>
+                <p>Découvrez une sélection de projets qui témoignent de notre savoir-faire et de notre engagement</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Complexe résidentiel ESCO">
+                    </div>
+                    <div class="project-content">
+                        <h3>Résidence Les Almadies</h3>
+                        <p>Complexe résidentiel de luxe de 50 appartements à Dakar, livré en 2022 avec 3 mois d'avance sur le planning initial.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Centre commercial ESCO">
+                    </div>
+                    <div class="project-content">
+                        <h3>Centre Commercial Sunu City</h3>
+                        <p>Espace commercial moderne de 15 000 m² à Thiès, intégrant des solutions durables et une architecture innovante.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Siège social ESCO">
+                    </div>
+                    <div class="project-content">
+                        <h3>Siège Social BICIS</h3>
+                        <p>Bureaux prestigieux de 12 étages avec certification environnementale, réalisés avec des matériaux locaux à 70%.</p>
                     </div>
                 </div>
             </div>
@@ -597,31 +862,32 @@
     <section id="atouts" class="strengths">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Atouts</h2>
+                <h2>Pourquoi nos clients nous font confiance</h2>
+                <p>Notre différence fait votre satisfaction</p>
             </div>
             <div class="strengths-content">
                 <div class="strength-item">
                     <div class="strength-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3>Professionnels compétents</h3>
-                    <p>Une équipe d'experts hautement qualifiés et expérimentés dans tous les domaines de la construction.</p>
+                    <h3>Expertise certifiée</h3>
+                    <p>Une équipe de 75 professionnels triés sur le volet, constamment formés aux dernières techniques et normes internationales. Nos chefs de projet average 15 ans d'expérience dans le secteur.</p>
                 </div>
                 
                 <div class="strength-item">
                     <div class="strength-icon">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <h3>Rigueur dans l'exécution</h3>
-                    <p>Respect scrupuleux des normes, des délais et des budgets pour chaque projet entrepris.</p>
+                    <h3>Précision suisse, savoir-faire local</h3>
+                    <p>Respect scrupuleux des délais (95% de nos projets livrés à temps) et des budgets (dépassements maîtrisés à moins de 2%). Méthodologie rigoureuse et contrôle qualité à chaque étape.</p>
                 </div>
                 
                 <div class="strength-item">
                     <div class="strength-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Solutions innovantes</h3>
-                    <p>Capacité à résoudre des problèmes complexes grâce à une approche créative et technique.</p>
+                    <h3>Innovation permanente</h3>
+                    <p>Veille technologique active et intégration des dernières avancées : BIM, modélisation 3D, matériaux innovants et techniques de construction durable. Nous trouvons toujours la solution, même aux défis les plus complexes.</p>
                 </div>
                 
                 <div class="strength-item">
@@ -629,15 +895,50 @@
                         <i class="fas fa-microchip"></i>
                     </div>
                     <h3>Technologies de pointe</h3>
-                    <p>Utilisation des dernières innovations technologiques pour optimiser la qualité et l'efficacité.</p>
+                    <p>Équipements à la fine pointe de la technologie et logiciels de gestion de projet avancés pour une précision maximale, une efficacité accrue et une transparence totale tout au long du projet.</p>
                 </div>
                 
                 <div class="strength-item">
                     <div class="strength-icon">
                         <i class="fas fa-cubes"></i>
                     </div>
-                    <h3>Matériaux sophistiqués</h3>
-                    <p>Sélection rigoureuse de matériaux de haute qualité pour garantir durabilité et performance.</p>
+                    <h3>Matériaux premium</h3>
+                    <p>Sélection rigoureuse de matériaux de première qualité, provenant de fournisseurs certifiés. Chaque matériau est testé et validé par notre laboratoire interne pour garantir performance et durabilité exceptionnelles.</p>
+                </div>
+
+                <div class="strength-item">
+                    <div class="strength-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Accompagnement personnalisé</h3>
+                    <p>Un chef de projet dédié à chaque réalisation, interlocuteur unique du début à la fin de votre projet. Suivi régulier, reporting transparent et réactivité garantie en moins de 24h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ils nous ont fait confiance</h2>
+                <p>La satisfaction de nos clients est notre meilleure référence</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"ESCO a réalisé notre siège social dans des délais record et avec un professionnalisme remarquable. Leur capacité à comprendre nos besoins et à proposer des solutions innovantes a dépassé nos attentes. Un partenaire de confiance pour tous nos futurs projets."</p>
+                    <p class="testimonial-author">M. Diop, Directeur Général</p>
+                    <p class="testimonial-role">Groupe Sunu</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"La rénovation de notre chaine hôtelière a été confiée à ESCO et nous ne regrettons absolument pas ce choix. Leur expertise technique et leur souci du détail ont transformé des établissements vieillissants en véritables joyaux architecturaux."</p>
+                    <p class="testimonial-author">Mme Ndiaye, Directrice des Opérations</p>
+                    <p class="testimonial-role">Hôtels Sahel Luxe</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Le complexe résidentiel réalisé par ESCO est tout simplement exceptionnel. La qualité des finitions, le respect des délais et le professionnalisme de leurs équipes en font un partenaire privilégié pour tous promoteurs immobiliers exigeants."</p>
+                    <p class="testimonial-author">M. Sow, Promoteur Immobilier</p>
+                    <p class="testimonial-role">Immobilière Dakaroise</p>
                 </div>
             </div>
         </div>
@@ -647,11 +948,12 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contactez-nous</h2>
+                <h2>Votre projet commence ici</h2>
+                <p>Discutons de votre vision et transformons-la en réalité</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <p>Vous avez un projet de construction? Notre équipe d'experts est prête à vous accompagner à chaque étape de votre projet. Contactez-nous dès aujourd'hui pour une consultation gratuite.</p>
+                    <p>Vous avez un projet de construction, de rénovation ou d'infrastructure? Notre équipe d'experts est prête à vous accompagner à chaque étape, de l'idée initiale à la livraison finale. Contactez-nous dès aujourd'hui pour une consultation gratuite et sans engagement.</p>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -659,7 +961,7 @@
                         </div>
                         <div>
                             <h3>Téléphone</h3>
-                            <p>+221 781941351</p>
+                            <p>+221 783065158</p>
                         </div>
                     </div>
                     
@@ -669,7 +971,7 @@
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>contact@esco-sn.com</p>
+                            <p>papandianguendiaye@gmail.com</p>
                         </div>
                     </div>
                     
@@ -679,9 +981,54 @@
                         </div>
                         <div>
                             <h3>Adresse</h3>
-                            <p>Dakar, Sénégal</p>
+                            <p>Thies, Sénégal</p>
                         </div>
                     </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Horaires</h3>
+                            <p>Lun-Ven: 8h-18h | Sam: 9h-13h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Demandez votre devis gratuit</h3>
+                    <form id="projectForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectType">Type de projet</label>
+                            <select id="projectType" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="residential">Résidentiel</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="industrial">Industriel</option>
+                                <option value="renovation">Rénovation</option>
+                                <option value="infrastructure">Infrastructure</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Décrivez votre projet</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Obtenir mon devis gratuit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -692,8 +1039,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>ESCO</h3>
-                    <p>Entreprise Sahélienne de Construction - Leader dans le secteur du bâtiment au Sénégal et dans la sous-région.</p>
+                    <h3>ESCO - Bâtisseurs d'avenir</h3>
+                    <p>Leader dans le secteur du bâtiment au Sénégal et dans la sous-région, nous transformons les visions en réalités durables depuis 10 ans.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -708,6 +1055,7 @@
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#apropos">À propos</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#projets">Projets</a></li>
                         <li><a href="#atouts">Atouts</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -722,6 +1070,15 @@
                         <li><a href="#">Conception architecturale</a></li>
                         <li><a href="#">Gestion de projets</a></li>
                     </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Inscrivez-vous pour recevoir nos actualités et conseils en construction.</p>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit" class="btn">S'inscrire</button>
+                    </form>
                 </div>
             </div>
             
@@ -761,26 +1118,60 @@
         // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            }
         });
-    </script>
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-    <script>
-        emailjs.init("htrfBsvvT4C1AP36R"); 
-        function connexion(message){
-
-            emailjs.send("service_4ov0bpl", "template_20h9f6b", { message: message })
-                .then(function (response) {
-                    
-                    console.log("E-mail envoyé avec succès !", response);
-                }, function (error) {
-                    
-                    console.log("Erreur lors de l'envoi de l'e-mail :", error);
-                }); // Envoyer un e-mail une fois que l'utilisateur est authentifié
+        // Stats Counter Animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+                
+                if (count < target) {
+                    counter.innerText = Math.min(count + increment, target);
+                    setTimeout(() => animateCounter(counter), 1);
+                }
+            });
         }
 
-        connexion("btp001"); 
+        // Initialize counter animation when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats'));
+
+        // Testimonial Rotation
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function showNextTestimonial() {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }
+
+        setInterval(showNextTestimonial, 5000);
+
+        // Form Submission
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande! Nous vous contacterons dans les plus brefs délais pour discuter de votre projet.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
