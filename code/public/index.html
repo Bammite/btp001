@@ -342,7 +342,6 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
-            
         }
         
         .stat-text {
@@ -724,22 +723,22 @@
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
+                <!-- <div class="stat-item">
                     <div class="stat-number" data-count="150">0</div>
                     <div class="stat-text">Projets réalisés</div>
-                </div>
+                </div> -->
                 <div class="stat-item">
                     <div class="stat-number" data-count="50">0</div>
                     <div class="stat-text">Clients satisfaits</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-number" data-count="2">0</div>
                     <div class="stat-text">Ans d'expérience</div>
                 </div>
-                <div class="stat-item">
+                <!-- <div class="stat-item">
                     <div class="stat-number" data-count="75">0</div>
                     <div class="stat-text">Professionnels</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -820,7 +819,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projets" class="projects">
+    <!-- <section id="projets" class="projects">
         <div class="container">
             <div class="section-title">
                 <h2>Nos réalisations emblématiques</h2>
@@ -856,7 +855,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Strengths Section -->
     <section id="atouts" class="strengths">
@@ -917,7 +916,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section
     <section class="testimonials">
         <div class="container">
             <div class="section-title">
@@ -942,7 +941,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1139,6 +1138,11 @@
                     counter.innerText = Math.min(count + increment, target);
                     setTimeout(() => animateCounter(counter), 1);
                 }
+                else {
+                    counter.innerText = target;
+                }
+                // ajouter + devant le nombre
+                counter.innerText = '+' + counter.innerText;
             });
         }
 
