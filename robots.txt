@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.esco-construction.sn/sitemap.xml
+
+# Optimisé pour les moteurs de recherche
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cgi-bin/
